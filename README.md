@@ -27,8 +27,14 @@ JSON format to Message structure and returns a pointer to the structure.
 At this moment, there is no automatic installation procedure. It is assumed that
 the package path is `github.com/ajanicij/goduckgo`, which means that the source
 file duckduck.go should be manually copied to the directory
-`$(GOROOT)/src/github.com/ajanicij/goduckgo/` and build by running command
-`go install github./com/ajanicij/goduckgo`. On an x86 Linux system, that will
+
+`$(GOROOT)/src/github.com/ajanicij/goduckgo/`
+
+and build by running command
+
+`go install github./com/ajanicij/goduckgo`.
+
+On an x86 Linux system, that will
 generate the binary `$(GOROOT)/pkg/linux_386/github.com/ajanicij/goduckgo.a`.
 
 ## Usage
@@ -80,5 +86,5 @@ For example, query
 
 produces the following:
 
-    `Definition: The sixth-largest continent, extending west from the Dardanelles, Black Sea, and Ural Mountains`.
+    Definition: The sixth-largest continent, extending west from the Dardanelles, Black Sea, and Ural Mountains.
 
