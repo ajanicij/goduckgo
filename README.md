@@ -10,12 +10,15 @@ Go package for DuckDuckGo API
 
 The API is described [here](http://duckduckgo.com/api.html). For
 example, the URL for querying about New York City is
+
 [http://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1](http://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1)
 
 The previous query causes DuckDuckGo to return the result in JSON format.
 
 Function goduckgo.Query declared as
+
     func Query(query string) (*Message, error)
+
 generates the URL, sends it to DuckDuckGo, receives the result, unmarshals from
 JSON format to Message structure and returns a pointer to the structure.
 
@@ -24,7 +27,7 @@ JSON format to Message structure and returns a pointer to the structure.
 At this moment, there is no automatic installation procedure. It is assumed that
 the package path is `github.com/ajanicij/goduckgo`, which means that the source
 file duckduck.go should be manually copied to the directory
-'$(GOROOT)/src/github.com/ajanicij/goduckgo/` and build by running command
+`$(GOROOT)/src/github.com/ajanicij/goduckgo/` and build by running command
 `go install github./com/ajanicij/goduckgo`. On an x86 Linux system, that will
 generate the binary `$(GOROOT)/pkg/linux_386/github.com/ajanicij/goduckgo.a`.
 
@@ -72,8 +75,10 @@ all available options:
       -Type=false: Type
 
 For example, query
+
 `askduck -Definition Europe`
 
 produces the following:
-    Definition: The sixth-largest continent, extending west from the Dardanelles, Black Sea, and Ural Mountains.
+
+    `Definition: The sixth-largest continent, extending west from the Dardanelles, Black Sea, and Ural Mountains`.
 
