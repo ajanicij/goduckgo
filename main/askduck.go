@@ -5,7 +5,7 @@ import (
 	"os"
 	"flag"
 	"strings"
-	"github.com/ajanicij/goduckgo"
+	"github.com/ajanicij/goduckgo/goduckgo"
 )
 
 func main() {
