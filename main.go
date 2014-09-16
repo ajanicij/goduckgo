@@ -1,10 +1,11 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
-	"flag"
 	"strings"
+
 	"github.com/ajanicij/goduckgo/goduckgo"
 )
 
@@ -26,12 +27,12 @@ func main() {
 	fl_results := flag.Bool("Results", false, "Results")
 	fl_related_topics := flag.Bool("RelatedTopics", false, "Related Topics")
 	fl_all := flag.Bool("All", false, "All Fields")
-	
+
 	if len(os.Args) == 1 {
 		flag.PrintDefaults()
 		os.Exit(0)
 	}
-	
+
 	flag.Parse()
 
 	if len(flag.Args()) < 1 {
@@ -39,7 +40,7 @@ func main() {
 		os.Exit(0)
 	}
 	query := strings.Join(flag.Args(), " ")
-	
+
 	message, err := goduckgo.Query(query)
 	CheckError(err)
 
@@ -102,16 +103,16 @@ func main() {
 
 func TypeDefinition(d string) string {
 	switch d {
-		case "A":
-			return "Article"
-		case "D":
-			return "Disambiguation"
-		case "C":
-			return "Category"
-		case "N":
-			return "Name"
-		case "E":
-			return "Exclusive"
+	case "A":
+		return "Article"
+	case "D":
+		return "Disambiguation"
+	case "C":
+		return "Category"
+	case "N":
+		return "Name"
+	case "E":
+		return "Exclusive"
 	}
 	return "Unknown"
 }
@@ -122,4 +123,3 @@ func CheckError(e error) {
 		os.Exit(-1)
 	}
 }
-
