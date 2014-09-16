@@ -35,7 +35,7 @@ go get -u github.com/ajanicij/goduckgo
 Usage
 -----
 
-Look at the source for the command-line utility, `askduck.go`. It imports
+Look at the source for the command-line utility, `main.go`. It imports
 package `github.com/ajanicij/goduckgo/goduckgo`, generates the query in the variable
 `query` (for example, "New York City") and passes it to function
 `goduckgo.Query`. That function returns two values: `*Message` and `error`.
@@ -43,8 +43,8 @@ package `github.com/ajanicij/goduckgo/goduckgo`, generates the query in the vari
 Command-line utility
 --------------------
 
-The source code of the command-line utility is `askduck.go`. It builds `goduckgo`
-command `goduckgo`. Its usage is:
+The source code of the command-line utility is `main.go`. It builds `goduckgo`
+command. Its usage is:
 
 `goduckgo [{flags}] <query>`
 
