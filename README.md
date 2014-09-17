@@ -97,3 +97,8 @@ emphasizes getting information from the best sources rather than the most source
 generating its search results from key crowdsourced sites such as Wikipedia and from
 partnerships with other search engines like Yandex, Yahoo!, Bing, Wolfram Alpha and Yummly.
 ```
+
+License
+-------
+`goduckgo` is MIT licensed, see [here](https://github.com/ajanicij/goduckgo/blob/master/LICENSE).
+
