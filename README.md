@@ -1,4 +1,4 @@
-goduckgo [![GoDoc](https://godoc.org/github.com/ajanicij/goduckgo/goduckgo?status.png)](http://godoc.org/github.com/ajanicij/goduckgo/goduckgo)
+goduckgo [![Build Status](https://travis-ci.org/ajanicij/goduckgo.svg?branch=master)](https://travis-ci.org/ajanicij/goduckgo)[![GoDoc](https://godoc.org/github.com/ajanicij/goduckgo/goduckgo?status.png)](http://godoc.org/github.com/ajanicij/goduckgo/goduckgo)
 ========
 
 Go package for DuckDuckGo Instant Answer API.
