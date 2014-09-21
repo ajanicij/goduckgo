@@ -13,6 +13,8 @@ import (
 	"os"
 )
 
+var baseUrl = "http://api.duckduckgo.com/?q=%s&format=json&pretty=1"
+
 // Type Message is a structure containing all the information returned by
 // DDG for a query.
 type Message struct {
@@ -31,6 +33,14 @@ type Message struct {
 	AbstractURL      string
 	Results          Results
 	RelatedTopics    RelatedTopics
+}
+
+func (message *Message) Decode(body []byte) error {
+	if err := json.Unmarshal(body, message); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 type Result struct {
@@ -89,21 +99,37 @@ func (icon *Icon) Fshow(w io.Writer, prefix string) {
 	fmt.Fprintln(w, prefix, "Width:", icon.Width)
 }
 
-func Query(query string) (*Message, error) {
-	query_enc := url.QueryEscape(query)
-	ddgurl := fmt.Sprintf("http://api.duckduckgo.com?q=%s&format=json&pretty=1", query_enc)
-	resp, err := http.Get(ddgurl)
+func EncodeUrl(query string) string {
+	queryEnc := url.QueryEscape(query)
+	return fmt.Sprintf(baseUrl, queryEnc)
+}
+
+func Do(url string) ([]byte, error) {
+	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
 	}
+
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
-	var message *Message = &Message{}
 
-	if err = json.Unmarshal(body, message); err != nil {
+	return body, nil
+}
+
+func Query(query string) (*Message, error) {
+	ddgUrl := EncodeUrl(query)
+
+	body, err := Do(ddgUrl)
+	if err != nil {
 		return nil, err
 	}
+
+	message := &Message{}
+	if err = message.Decode(body); err != nil {
+		return nil, err
+	}
+
 	return message, nil
 }
