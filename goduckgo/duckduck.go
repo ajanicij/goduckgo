@@ -77,9 +77,11 @@ func (topic *RelatedTopic) Show(prefix string) {
 
 func (topic *RelatedTopic) Fshow(w io.Writer, prefix string) {
 	fmt.Fprintln(w, prefix, "Result:", topic.Result)
-	fmt.Fprintln(w, prefix, "Icon:")
-	topic.Icon.Fshow(w, prefix+prefix)
-	fmt.Fprintln(w, prefix, "FirstURL:", topic.FirstURL)
+	if !topic.Icon.IsEmpty() {
+		fmt.Fprintln(w, prefix, "Icon:")
+		topic.Icon.Fshow(w, prefix+prefix)
+	}
+	fmt.Fprintln(w, prefix, "First URL:", topic.FirstURL)
 	fmt.Fprintln(w, prefix, "Text:", topic.Text)
 }
 
@@ -87,6 +89,12 @@ type Icon struct {
 	URL    string
 	Height interface{} // can be string or number ("16" or 16)
 	Width  interface{} // can be string or number ("16" or 16)
+}
+
+func (icon *Icon) IsEmpty() bool {
+	return icon.URL == "" &&
+		icon.Height == "" &&
+		icon.Width == ""
 }
 
 func (icon *Icon) Show(prefix string) {
