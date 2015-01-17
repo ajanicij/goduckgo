@@ -14,8 +14,7 @@ import (
 	"strings"
 )
 
-var baseUrl = "http://api.duckduckgo.com/?q=%s&format=json&pretty=1"
-var bangUrl = "http://api.duckduckgo.com/?q=%s&format=json&pretty=1&no_redirect=1"
+var baseUrl = "http://api.duckduckgo.com/?q=%s&format=json&pretty=1%s"
 
 // Message is a structure containing all the information returned by
 // DDG for a query.
@@ -146,10 +145,9 @@ func (icon *Icon) fshow(w io.Writer, prefix string) {
 func EncodeUrl(query string) string {
 	queryEnc := url.QueryEscape(query)
 	if strings.Contains(query, "!") && strings.Index(query, "!") == 0 {
-		return fmt.Sprintf(bangUrl, queryEnc)
-	} else {
-		return fmt.Sprintf(baseUrl, queryEnc)
+		return fmt.Sprintf(baseUrl, queryEnc, "&no_redirect=1")
 	}
+	return fmt.Sprintf(baseUrl, queryEnc, "")
 }
 
 // Do the HTTP requests against API and handle errors
