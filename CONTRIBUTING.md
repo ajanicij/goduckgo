@@ -15,13 +15,13 @@ Submitting a **Bug** or **Suggestion**
 --------------------------------------
 
 - Firstly, please make sure the bug is related to the **GoDuckGo** package. If this bug
-is about the DuckDuckGo API, or the relevancy ofthe  search results, please visit DuckDuckGo's
+is about the DuckDuckGo API, or the relevancy of the search results, please visit DuckDuckGo's
 feedback page at <https://duckduckgo.com/feedback>.
 
 - Check the **GoDuckGo** [issues](https://github.com/ajanicij/goduckgo/issues) to see if
 an issue already exists for the given bug or suggestion:
   - If one doesn't exist, create a GitHub issue in the **GoDuckGo** repository:
-    - Clearly describe the bug/improvemnt, including steps to reproduce when it is a bug.
+    - Clearly describe the bug/improvement, including steps to reproduce when it is a bug.
   - If one already exists, please add any additional comments you have regarding the matter.
 
 If you're submitting a **pull request** (bugfix/addition):
@@ -32,17 +32,17 @@ Making Changes
 
 - Before making any changes, make sure your [Go environment](http://golang.org/doc/install) is setup.
 - Run `gofmt` and `go vet` commands to clean up your code.
-- Make sure your commits are of a reasonable size. They shouldn't be too big (or too small).
+- Make sure your commits are of a reasonable size. They shouldn't be too big.
 - Make sure your commit messages effectively explain what changes have been made.
 
   ```shell
-  main.go - Handle error when Icon is empty
+  main.go: Handle error when Icon is empty
   ```
 
   is much better than:
 
   ```shell
-  <bad_commit_example>
+  annoying error for empty icon is fixed now
   ```
 
 - Make sure you have added the necessary tests for your changes.
