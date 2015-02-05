@@ -11,7 +11,7 @@ import (
 
 func TestQuery(t *testing.T) {
 	query := "New York City"
-	expectedUrl := "http://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1"
+	expectedUrl := "https://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1"
 	expectedBody := `{
         "Heading" : "New York City"
     }`
@@ -49,7 +49,7 @@ func TestQuery(t *testing.T) {
 
 func TestEncodeUrl(t *testing.T) {
 	query := "!gi New York City"
-	expectedUrl := "http://api.duckduckgo.com/?q=%21gi+New+York+City&format=json&pretty=1&no_redirect=1"
+	expectedUrl := "https://api.duckduckgo.com/?q=%21gi+New+York+City&format=json&pretty=1&no_redirect=1"
 
 	url := EncodeUrl(query)
 	if url != expectedUrl {
@@ -57,7 +57,7 @@ func TestEncodeUrl(t *testing.T) {
 	}
 
 	query = "New York City"
-	expectedUrl = "http://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1"
+	expectedUrl = "https://api.duckduckgo.com/?q=New+York+City&format=json&pretty=1"
 	url = EncodeUrl(query)
 	if url != expectedUrl {
 		t.Errorf("Got %s, want %s", url, expectedUrl)

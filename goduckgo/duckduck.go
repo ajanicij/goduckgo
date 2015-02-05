@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-var baseUrl = "http://api.duckduckgo.com/?q=%s&format=json&pretty=1%s"
+var baseUrl = "https://api.duckduckgo.com/?q=%s&format=json&pretty=1%s"
 
 // Message is a structure containing all the information returned by
 // DDG for a query.
